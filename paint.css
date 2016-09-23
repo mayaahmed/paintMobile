@@ -2,21 +2,22 @@ canvas{
     border: 1px solid gray;
     background:#FFFFE0;
     box-shadow: inset 2px 2px 1px rgba(0,0,0,0.2);
+margin-left: 10px;
 }
 
 
 #controls{
 float: left;
-  margin-left: 10px;
+  margin-left: 0;
     background-color: rgba(0,0,0,0.1);
-    width: 20%;
+    width: 18%;
  //   box-shadow:  2px 2px 5px khaki;
     text-align: center;
   //  border-radius: 5px;
 }
 
 .listingButton{
-width: 65px;
+width: 63px;
 height: 20px;
 border: 1px solid gray;
 box-shadow: inset 2px 2px 1px rgba(0,0,0,0.2);
