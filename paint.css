@@ -13,7 +13,7 @@ canvas{
 
 #controls{
 float: left;
-
+height: 400px;
     margin-left: 10px;
     //  border: 2px solid khaki;
     background-color: rgba(0,0,0,0.1);
@@ -22,6 +22,7 @@ float: left;
     //   box-shadow:  2px 2px 5px khaki;
     text-align: center;
     //  border-radius: 5px;
+overflow: scroll;
 }
 
 
