@@ -1,64 +1,57 @@
-canvas{
-    border: 1px solid gray;
-    background:#FFFFE0;
-    box-shadow: inset 2px 2px 1px rgba(0,0,0,0.2);
-margin-left: 10px;
+
+#container{
+    margin-top: 50px;
+
 }
 
 
 #controls{
-float: left;
-  margin-left: 0;
+    float: left;
+    margin-left: 10px;
+    //  border: 2px solid khaki;
     background-color: rgba(0,0,0,0.1);
-    width: 18%;
- //   box-shadow:  2px 2px 5px khaki;
+    width: 15%;
+    //   box-shadow:  2px 2px 5px khaki;
     text-align: center;
-  //  border-radius: 5px;
+    //  border-radius: 5px;
 }
 
-.listingButton{
-width: 63px;
-height: 20px;
-border: 1px solid gray;
-box-shadow: inset 2px 2px 1px rgba(0,0,0,0.2);
-text-shadow: 1px 1px 1px black;
-opacity:0.8;
-border-radius: 5px;
-font-size: 10px;
-background: khaki;
-margin-top: 3px;
-margin-bottom: 3px;
+canvas{
+    float: left;
+    border: 1px solid gray;
+    background:#FFFFE0;
+    box-shadow: inset 2px 2px 1px rgba(0,0,0,0.2);
+    margin: 10px;
 }
 
-.listingButton:hover{
-opacity: 1;
-}
+
 
 .closeButtonOptions{
-float: right;
-// margin-left:50px;
-height: 20px;
-width: 20px;
-font-size: 18px;
-border: 1px solid black;
-background: wheat;
-// border-radius: 2px;
-// box-shadow: 2px 2px 12px rgba(0,0,0,0.2);
-// color: white;
-opacity: 0.5;
-line-height: 20px;
+    float: right;
+    // margin-left:50px;
+    height: 20px;
+    width: 20px;
+    font-size: 18px;
+    border: 1px solid black;
+    background: wheat;
+    // border-radius: 2px;
+    // box-shadow: 2px 2px 12px rgba(0,0,0,0.2);
+    // color: white;
+    opacity: 0.5;
+    line-height: 20px;
 }
 
 .closeButtonOptions:hover{
-opacity: 0.9;
-height: 22px;
-width: 22px;
+    opacity: 0.9;
+    height: 22px;
+    width: 22px;
 }
 
 
 
 .lightBorder {
-    border: 2px solid white;
+    // position: absolute;
+    border: 2px solid blue;
     margin-top: 5px;
     margin-bottom: 5px;
     overflow: hidden;
@@ -67,6 +60,7 @@ width: 22px;
     min-width: 75px;
     background: #FFFFE0;
     opacity: 0.9;
+transition: height 2s;
 }
 
 p{
@@ -75,4 +69,74 @@ p{
 
 #clearCanvas {
     margin-top: 5px;
+}
+
+#toolbar{
+    width: 100%;
+    min-height:30px;
+    // padding:5px;
+    position:fixed;
+    top:0;
+    background: khaki;
+    //color: white; 
+    font-size: 22px;
+    display: flex;
+    flex-wrap: wrap;
+ //   justify-content: center; 
+    text-shadow: 0px 1px 0px rgba(0,0,0,0.4);
+    line-height: 30px;
+
+}
+
+.choiceMode{
+    padding: 10px;
+}
+
+
+.typeClass{
+    border: 1px solid blue;
+    margin: 2px;
+}
+
+#fontDiv{
+    text-align: left;
+    overflow: scroll;
+    max-height: 400px;
+}
+
+
+#imageDiv{
+    text-align: left;
+}
+
+
+
+.toolButton{
+
+    font-size: 20px;
+    text-align: center;
+    background-color: Transparent;
+    border: none;
+    cursor:pointer;
+    // overflow: hidden;
+    outline:none;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+    color: blue;
+    width: 120px;
+
+
+}
+
+.toolButton:hover{
+    font-size: 24px;
+}
+
+.undoButton{
+ font-size: 16px;
+box-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+padding: 2px;
+}
+
+.undoButton:hover{
+ font-size: 17px;
 }

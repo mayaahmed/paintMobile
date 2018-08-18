@@ -1,45 +1,40 @@
+var imageBox = document.getElementById("imageBox");   
+var editTextBox = document.getElementById("editTextBox");  
 
+var paintBox = document.getElementById("paintBox"); 
+var eraseRadio = document.getElementById("eraseRadio");
+var freeDrawRadio = document.getElementById("freeDrawRadio");
 
+slideOpen(paintDiv);
+imageBox.addEventListener("click", showImageBox, false);
+paintBox.addEventListener("click", showPaintBox, false);
+editTextBox.addEventListener("click", showTextBox, false);
 
-
-
-
-
-
-// Drop down punjiri screen
-
-function openNav() {
-    document.getElementById("myNav").style.height = "100%";
+function showImageBox(){
+imageInitial();
+slideClose(textDiv);
+slideClose(paintDiv);
 }
 
-function closeNav() {
-    document.getElementById("myNav").style.height = "0%";
+function showPaintBox(){
+
+slideOpen(paintDiv);
+slideClose(textDiv);
+slideClose(imageDiv);
+}
+
+function showTextBox(){
+textInitial();
+slideClose(imageDiv);
+slideClose(paintDiv);
 }
 
 
+function saveCanvas(){
+var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");  
 
-/* When the user clicks on the button,
-toggle between hiding and showing the dropdown content */
-function myFunction() {
-    document.getElementById("myDropdown").classList.toggle("show");
+window.location.href=image; // it will save locally
 }
-
-// Close the dropdown if the user clicks outside of it
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }}
-
- 
-
 
 
 
