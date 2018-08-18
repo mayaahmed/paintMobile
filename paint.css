@@ -1,30 +1,33 @@
 
 #container{
     margin-top: 50px;
-
+width: 500px;
 }
 
 
 #controls{
-    float: left;
+position: absolute;
+
     margin-left: 10px;
     //  border: 2px solid khaki;
     background-color: rgba(0,0,0,0.1);
-    width: 15%;
+    width: 60px;
     //   box-shadow:  2px 2px 5px khaki;
     text-align: center;
     //  border-radius: 5px;
 }
 
 canvas{
-    float: left;
     border: 1px solid gray;
     background:#FFFFE0;
     box-shadow: inset 2px 2px 1px rgba(0,0,0,0.2);
     margin: 10px;
 }
 
-
+#canvasDiv{
+position: absolute;
+margin-left: 100px;
+}
 
 .closeButtonOptions{
     float: right;
