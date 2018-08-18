@@ -4,19 +4,6 @@
 width: 500px;
 }
 
-
-#controls{
-position: absolute;
-
-    margin-left: 10px;
-    //  border: 2px solid khaki;
-    background-color: rgba(0,0,0,0.1);
-    width: 60px;
-    //   box-shadow:  2px 2px 5px khaki;
-    text-align: center;
-    //  border-radius: 5px;
-}
-
 canvas{
     border: 1px solid gray;
     background:#FFFFE0;
@@ -24,10 +11,22 @@ canvas{
     margin: 10px;
 }
 
-#canvasDiv{
-position: absolute;
-margin-left: 100px;
+#controls{
+float: left;
+
+    margin-left: 10px;
+    //  border: 2px solid khaki;
+    background-color: rgba(0,0,0,0.1);
+  width: 18%;
+   
+    //   box-shadow:  2px 2px 5px khaki;
+    text-align: center;
+    //  border-radius: 5px;
 }
+
+
+
+
 
 .closeButtonOptions{
     float: right;
@@ -77,22 +76,20 @@ p{
 #toolbar{
     width: 100%;
     min-height:30px;
-    // padding:5px;
     position:fixed;
     top:0;
     background: khaki;
-    //color: white; 
-    font-size: 22px;
+      font-size: 16px;
     display: flex;
     flex-wrap: wrap;
- //   justify-content: center; 
+er; 
     text-shadow: 0px 1px 0px rgba(0,0,0,0.4);
     line-height: 30px;
 
 }
 
 .choiceMode{
-    padding: 10px;
+    padding: 2px;
 }
 
 
@@ -116,7 +113,7 @@ p{
 
 .toolButton{
 
-    font-size: 20px;
+    font-size: 12px;
     text-align: center;
     background-color: Transparent;
     border: none;
@@ -125,13 +122,13 @@ p{
     outline:none;
     text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
     color: blue;
-    width: 120px;
+  
 
 
 }
 
 .toolButton:hover{
-    font-size: 24px;
+    font-size: 16px;
 }
 
 .undoButton{

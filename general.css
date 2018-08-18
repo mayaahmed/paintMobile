@@ -24,7 +24,7 @@ background: black;
 }
 
 #top_header{
-	font: bold 25px Tahoma; 
+	font: bold 22px Tahoma; 
     color: khaki;
 
    //  opacity:0.9;
@@ -33,27 +33,4 @@ background: black;
 #flag{
 font-size: 11px;
 }
-
-ul{
-float:right;
-}
-
-li a{
-    text-decoration: none;
-    color:  khaki;
-	font:  18px Tahoma; 
-    padding:10px;
-}
-
-li a:hover{
-font:  19px Tahoma; 
-}
-#top_menu li{
-    
-	display: inline-block;
-	list-style: none;
-	font: bold 25px Tahoma;
-    color: khaki;
-}
-
 
