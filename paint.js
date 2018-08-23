@@ -243,9 +243,9 @@ function init() {
     context.lineWidth = lineWidth.value;
 
 
-    canvas.addEventListener('touchstart', doMouseDown, false);
-    canvas.addEventListener('touchmove', doMouseMove, false);
-    canvas.addEventListener('touchend',doMouseUp, false);
+    canvas.addEventListener('mousedown', doMouseDown, false);
+    canvas.addEventListener('mousemove', doMouseMove, false);
+    canvas.addEventListener('mouseup',doMouseUp, false);
     canvas.addEventListener('mouseout',doMouseOut, false);
     lineWidth.addEventListener("input", changeLineWidth, false);
     fillColor.addEventListener("input", changeFillStyle, false);
@@ -265,5 +265,31 @@ function init() {
 window.addEventListener('load', init, false);
 
 
+ initTouch();
 
-
+function initTouch() {
+  document.addEventListener("touchstart", touchHandler, true);
+  document.addEventListener("touchmove", touchHandler, true);
+  document.addEventListener("touchend", touchHandler, true);
+  document.addEventListener("touchcancel", touchHandler, true);   
+  }
+  function touchHandler(event)
+  {
+  var touches = event.changedTouches,
+  first = touches[0],
+  type = "";
+  switch(event.type)
+  {
+  case "touchstart": type = "mousedown"; break;
+  case "touchmove":  type="mousemove"; break;        
+  case "touchend":   type="mouseup"; break;
+  default: return;
+  }
+  var simulatedEvent = document.createEvent("MouseEvent");
+   simulatedEvent.initMouseEvent(type, true, true, window, 1,
+                      first.screenX, first.screenY,
+                      first.clientX, first.clientY, false,
+                      false, false, false, 0/*left*/, null);
+  first.target.dispatchEvent(simulatedEvent); 
+  event.preventDefault();
+   }
