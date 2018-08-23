@@ -1,7 +1,7 @@
 
 #container{
     margin-top: 50px;
-width: 500px;
+  //  width: 500px;
 }
 
 canvas{
@@ -12,17 +12,17 @@ canvas{
 }
 
 #controls{
-float: left;
-height: 400px;
+    float: left;
+    height: 400px;
     margin-left: 10px;
     //  border: 2px solid khaki;
     background-color: rgba(0,0,0,0.1);
-  width: 18%;
-   
+    width: 18%;
+    
     //   box-shadow:  2px 2px 5px khaki;
     text-align: center;
     //  border-radius: 5px;
-overflow: scroll;
+    overflow: scroll;
 }
 
 
@@ -63,7 +63,7 @@ overflow: scroll;
     min-width: 75px;
     background: #FFFFE0;
     opacity: 0.9;
-transition: height 2s;
+    transition: height 2s;
 }
 
 p{
@@ -80,10 +80,10 @@ p{
     position:fixed;
     top:0;
     background: khaki;
-      font-size: 16px;
+    font-size: 16px;
     display: flex;
     flex-wrap: wrap;
-er; 
+    er; 
     text-shadow: 0px 1px 0px rgba(0,0,0,0.4);
     line-height: 30px;
 
@@ -123,7 +123,7 @@ er;
     outline:none;
     text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
     color: blue;
-  
+    
 
 
 }
@@ -133,11 +133,11 @@ er;
 }
 
 .undoButton{
- font-size: 16px;
-box-shadow: 1px 1px 1px rgba(0,0,0,0.2);
-padding: 2px;
+    font-size: 16px;
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+    padding: 2px;
 }
 
 .undoButton:hover{
- font-size: 17px;
+    font-size: 17px;
 }
