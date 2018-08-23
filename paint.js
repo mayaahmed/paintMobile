@@ -117,7 +117,7 @@ function drawP(position) {
     
     
     context.lineCap = lineCap;
-   
+    
     
     if (shape === "eraser") {
 	erase(position, eraseDim);
@@ -215,9 +215,9 @@ function eraseCanvas() {
 
     context.clearRect(0, 0, canvas.width, canvas.height);
     backCtx.clearRect(0, 0, backCanvas.width, backCanvas.height);
- canvas.style.background ="#FFFFE0";
-gallery=[];
-text=[];
+    canvas.style.background ="#FFFFE0";
+    gallery=[];
+    text=[];
 }
 
 function init() {
@@ -246,18 +246,23 @@ function init() {
     canvas.addEventListener('mousedown', doMouseDown, false);
     canvas.addEventListener('mousemove', doMouseMove, false);
     canvas.addEventListener('mouseup',doMouseUp, false);
-    canvas.addEventListener('mouseout',doMouseOut, false);
+   
+    canvas.addEventListener('touchstart', doMouseDown, false);
+    canvas.addEventListener('touchmove', doMouseMove, false);
+    canvas.addEventListener('touchend',doMouseUp, false);
+
+
     lineWidth.addEventListener("input", changeLineWidth, false);
     fillColor.addEventListener("input", changeFillStyle, false);
     strokeColor.addEventListener("input", changeStrokeStyle, false);
     canvasColor.addEventListener("input", changeBackgroundColor, false);
     
-    undoTextBtn.addEventListener('mousedown', deleteLastText, false);
-    deleteLastStep.addEventListener('mousedown', deleteStep, false);
+    undoTextBtn.addEventListener('click', deleteLastText, false);
+    deleteLastStep.addEventListener('click', deleteStep, false);
     fontSize.addEventListener("input", changeFontSize, false);
     
-   
-    clearCanvas.addEventListener('mousedown', eraseCanvas, false);
+    
+    clearCanvas.addEventListener('click', eraseCanvas, false);
     takeSnapshot();
 }
 

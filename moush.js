@@ -13,8 +13,7 @@ function doMouseDown(e){
 
     if (imageBox.checked) imageMouseDown(e);
     else if (editTextBox.checked) textMouseDown(e);
-    else { if(paintBox.checked)  dragStart(e);
-}
+    else  dragStart(e);
 }
 
 function doMouseMove(e){
