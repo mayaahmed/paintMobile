@@ -36,7 +36,7 @@ el.style.height="120px";
 el.style.visibility="visible";
 }
 function initTouch() {
-//   document.addEventListener("touchstart", touchHandler, true);
+  document.addEventListener("touchstart", touchHandler, true);
   document.addEventListener("touchmove", touchHandler, true);
   document.addEventListener("touchend", touchHandler, true);
   document.addEventListener("touchcancel", touchHandler, true);   
@@ -48,7 +48,7 @@ function initTouch() {
   type = "";
   switch(event.type)
   {
-//  case "touchstart": type = "mousedown"; break;
+  case "touchstart": type = "mousedown"; break;
   case "touchmove":  type="mousemove"; break;        
   case "touchend":   type="mouseup"; break;
   default: return;
