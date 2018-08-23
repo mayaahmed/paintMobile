@@ -1,7 +1,7 @@
 var imageBox = document.getElementById("imageBox");   
 var editTextBox = document.getElementById("editTextBox"); 
 var paintBox = document.getElementById("paintBox");  
-var eraseBox = document.getElementById("eraseBox"); 
+
 
 
 
@@ -13,8 +13,8 @@ function doMouseDown(e){
 
     if (imageBox.checked) imageMouseDown(e);
     else if (editTextBox.checked) textMouseDown(e);
-    
-    else dragStart(e);
+    else { if(paintBox.checked)  dragStart(e);
+}
 }
 
 function doMouseMove(e){
