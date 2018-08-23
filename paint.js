@@ -243,9 +243,9 @@ function init() {
     context.lineWidth = lineWidth.value;
 
 
-    canvas.addEventListener('mousedown', doMouseDown, false);
-    canvas.addEventListener('mousemove', doMouseMove, false);
-    canvas.addEventListener('mouseup',doMouseUp, false);
+    canvas.addEventListener('touchstart', doMouseDown, false);
+    canvas.addEventListener('touchmove', doMouseMove, false);
+    canvas.addEventListener('touchend',doMouseUp, false);
     canvas.addEventListener('mouseout',doMouseOut, false);
     lineWidth.addEventListener("input", changeLineWidth, false);
     fillColor.addEventListener("input", changeFillStyle, false);
