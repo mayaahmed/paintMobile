@@ -9,8 +9,10 @@ function initCanvas() {
 }
 
 function resizeCanvas() {
-    canvas.width = window.innerWidth-80;
-    canvas.height = window.innerHeight-300;
+canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    /*canvas.width = window.innerWidth-80;
+    canvas.height = window.innerHeight-300;*/
 }
 
 initCanvas();
