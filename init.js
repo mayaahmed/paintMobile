@@ -9,8 +9,8 @@ function initCanvas() {
 }
 
 function resizeCanvas() {
-canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+canvas.width = Math.min(400,window.innerWidth);
+    canvas.height = Math.min(400,window.innerHeight);
     /*canvas.width = window.innerWidth-80;
     canvas.height = window.innerHeight-300;*/
 }
