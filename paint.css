@@ -1,31 +1,32 @@
 
 #container{
+width: 100%;
+height: 100%;
     margin-top: 50px;
-  //  width: 500px;
-}
 
-canvas{
-    border: 1px solid gray;
-    background:#FFFFE0;
-    box-shadow: inset 2px 2px 1px rgba(0,0,0,0.2);
-    margin: 10px;
+
 }
+canvas{// margin-top: 20px;
+     border: 1px solid gray;
+     background:#FFFFE0;
+     box-shadow: inset 2px 2px 1px rgba(0,0,0,0.2);
+margin: 10px;
+
+      }
+
+
+
 
 #controls{
     float: left;
-    height: 400px;
     margin-left: 10px;
     //  border: 2px solid khaki;
     background-color: rgba(0,0,0,0.1);
-    width: 18%;
-    
+ //   width: 15%;
     //   box-shadow:  2px 2px 5px khaki;
     text-align: center;
     //  border-radius: 5px;
-    overflow: scroll;
 }
-
-
 
 
 
@@ -52,23 +53,7 @@ canvas{
 
 
 
-.lightBorder {
-    // position: absolute;
-    border: 2px solid blue;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    overflow: hidden;
-    visibility: hidden;
-    height: 0px;
-    min-width: 75px;
-    background: #FFFFE0;
-    opacity: 0.9;
-    transition: height 2s;
-}
 
-p{
-    margin: 4px;
-}
 
 #clearCanvas {
     margin-top: 5px;
@@ -77,27 +62,26 @@ p{
 #toolbar{
     width: 100%;
     min-height:30px;
+    // padding:5px;
     position:fixed;
     top:0;
     background: khaki;
-    font-size: 16px;
+    //color: white; 
+    font-size: 22px;
     display: flex;
     flex-wrap: wrap;
-    er; 
+ //   justify-content: center; 
     text-shadow: 0px 1px 0px rgba(0,0,0,0.4);
     line-height: 30px;
 
 }
 
 .choiceMode{
-    padding: 2px;
+    padding: 10px;
 }
 
 
-.typeClass{
-    border: 1px solid blue;
-    margin: 2px;
-}
+
 
 #fontDiv{
     text-align: left;
@@ -108,13 +92,15 @@ p{
 
 #imageDiv{
     text-align: left;
+overflow: scroll;
+    max-height: 200px;
 }
 
 
 
 .toolButton{
 
-    font-size: 12px;
+    font-size: 20px;
     text-align: center;
     background-color: Transparent;
     border: none;
@@ -123,21 +109,99 @@ p{
     outline:none;
     text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
     color: blue;
-    
+//    width: 120px;
 
 
 }
 
 .toolButton:hover{
-    font-size: 16px;
+    font-size: 24px;
 }
 
 .undoButton{
-    font-size: 16px;
-    box-shadow: 1px 1px 1px rgba(0,0,0,0.2);
-    padding: 2px;
+ font-size: 16px;
+box-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+padding: 2px;
 }
 
 .undoButton:hover{
+ font-size: 17px;
+}
+
+.lightBorder{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    overflow: scroll;
+    visibility: hidden;
+    width: 0px;  
+    height: 0px;
+    background: #FFFFE0;
+    opacity: 0.9;
+    transition: width 2s;
+    float: left;
+}
+
+.typeClass{
+    border: 1px solid blue;
+    margin: 2px;
+    display: flex;
+overflow: scroll;
+}
+
+#fontDiv p{
+float: left;
+}
+
+.choiceEdit{
+border: 1px solid brown;
+padding: 5px;
+margin: 5px;
+max-height: 200px;
+overflow: scroll;
+}
+
+.choiceTitle{
+padding: 3px;
+margin: 3px;
+background: olive;
+text-align: center;
+color: beige;
+line-height: 40px;
+// font-size: 22px;
+}
+
+#colorDiv{
+  
+ height: 0px;
+visibility: hidden;
+transition: height 2s;
+}
+
+#fileDiv{
+  
+ height: 0px;
+visibility: hidden;
+transition: height 2s;
+}
+
+.fileOption{
+
+    font-size: 16px;
+    text-align: center;
+    background-color: Transparent;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    color: beige;
+}
+
+.fileOption:hover{
     font-size: 17px;
 }
+
+
+.colorOption{
+margin-left:3px;
+}
+

@@ -9,7 +9,7 @@ function initCanvas() {
 }
 
 function resizeCanvas() {
-    canvas.width = window.innerWidth-120;
+    canvas.width = window.innerWidth-80;
     canvas.height = window.innerHeight-300;
 }
 
@@ -31,24 +31,23 @@ function takeSnapshot() {
 }
 
 function slideOpen(el){
-    // el.style.transition="height 1s linear 0s";
-    el.style.height="700px";
-    el.style.visibility="visible";
+el.style.width="100%";
+el.style.height="100%";
+el.style.visibility="visible";
 }
 
 function slideClose(el){
-    
-    
-    // el.style.transition="height 1s linear 0s";
-    el.style.height="0px";
-    el.style.border="none";
+// el.style.transition="height 1s linear 0s";
+el.style.width="0px";
+el.style.height="0px";
+el.style.border="none";
+el.style.visibility="hidden";
 }
 
-function slideOpenColor(el){
-    // el.style.transition="height 1s linear 0s";
-    el.style.height="120px";
-    el.style.visibility="visible";
-}
+
+
+
+
 
 var canvas;
 var canvasWidth;
@@ -56,3 +55,26 @@ var context;
 
 
 
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function myFunction(elementDiv) {
+   elementDiv.classList.toggle("show");
+}
+
+
+
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}

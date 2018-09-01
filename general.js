@@ -31,9 +31,12 @@ slideClose(paintDiv);
 
 
 function saveCanvas(){
-var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");  
 
-window.location.href=image; // it will save locally
+
+
+ var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");  
+
+ window.location.href=image; // it will save locally
 }
 
 
