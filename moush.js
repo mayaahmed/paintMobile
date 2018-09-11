@@ -2,13 +2,6 @@ var imageBox = document.getElementById("imageBox");
 var editTextBox = document.getElementById("editTextBox"); 
 var paintBox = document.getElementById("paintBox");  
 
-
-
-
-
-
-
-
 function doMouseDown(e){
 
     if (imageBox.checked) imageMouseDown(e);

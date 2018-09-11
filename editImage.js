@@ -1,4 +1,3 @@
-
 var offsetX= canvas.offsetLeft;
 var offsetY= canvas.offsetTop;
 var startX;
@@ -14,13 +13,7 @@ var draggingResizer={x:0,y:0};
 var imageWidth,imageHeight,imageRight,imageBottom;
 var draggingImage=false;
 
-
-
-
 var selectedImage=-1;
-
-
-
 
 
 function loadImageFileAsURL()
@@ -35,17 +28,13 @@ function loadImageFileAsURL()
         {
             var fileReader = new FileReader();
             fileReader.onload = function(fileLoadedEvent) 
-            {
+            {	var  len = gallery.length; 
  		img = new Image();
 		img.src=  fileLoadedEvent.target.result;
-		
-		
-		var  len = gallery.length;
-		gallery[len]={img: img, imageX: 50, imageY: 50, imageWidth: 200, imageHeight: 200, imageRight: 0, imageBottom: 0};
+		gallery[len]={img: img, imageX: 50, imageY: 50, imageWidth: 200, imageHeight: 200, imageRight: 0, imageBottom: 0, angle: 0};
 		gallery[len].imageRight=gallery[len].imageX+gallery[len].imageWidth;
       		gallery[len].imageBottom=gallery[len].imageY+gallery[len].imageHeight;
-		restoreSnapshot();
-		draw(false,false,   gallery[len]); 
+		draw(false,gallery[len] );
 		
 		
             };
@@ -57,47 +46,49 @@ function loadImageFileAsURL()
 
 
 function imageDrawAll(){
-
+    console.log(gallery.length);
 
     for(var i=0;i<gallery.length;i++)
-        draw(false,false,gallery[i] );
+        draw(false,gallery[i] );
 
 }
 
 
-function imageDrawAllWithAnchors(){
-
-
-    for(var i=0;i<gallery.length;i++)
-        draw(true,true,gallery[i] );
-
-
-
-}
 
 function imageDrawAllWithBorders(){
 
 
     for(var i=0;i<gallery.length;i++)
-        draw(false,true,gallery[i] );
+        draw(true,gallery[i] );
 
 
 
 }
 
-function draw(withAnchors,withBorders,pic ){
+function draw(withBorders,pic ){
+console.log(pic.img.width);
+
+
+     // draw the image
     
+    if(pic.angle>0){
+	console.log(pic.angle);
+	context.save();
+context.translate(pic.imageX,pic.imageY);
+context.translate(pic.imageWidth/2,pic.imageHeight/2);
 
-    // draw the image
-    context.drawImage(pic.img,0,0,pic.img.width,pic.img.height,pic.imageX,pic.imageY,pic.imageWidth,pic.imageHeight);
+	context.rotate(pic.angle*Math.PI/180.0);
+context.drawImage(pic.img,-pic.imageWidth/2,-pic.imageHeight/2,pic.imageWidth,pic.imageHeight);
 
-    // optionally draw the draggable anchors
-    if(withAnchors){
-	  drawDragAnchor(pic.imageX,pic.imageY);
-	  drawDragAnchor(pic.imageRight,pic.imageY);
-	  drawDragAnchor(pic.imageRight,pic.imageBottom);
-	  drawDragAnchor(pic.imageX,pic.imageBottom);
+		context.restore(); 
+	
+
     }
+
+
+
+    else  context.drawImage(pic.img,pic.imageX,pic.imageY,pic.imageWidth,pic.imageHeight);
+
 
     // optionally draw the connecting anchor lines
     if(withBorders){
@@ -109,41 +100,11 @@ function draw(withAnchors,withBorders,pic ){
         context.closePath();
         context.stroke();
     }
-
+    
 }
 
 
-function drawDragAnchor(x,y){
-    context.beginPath();
-    context.arc(x,y,resizerRadius,0,pi2,false);
-    context.closePath();
-    context.fill();
-}
 
-
-function anchorHitTest(x,y,pic){
-
-    var dx,dy;
-
-    // top-left
-    dx=x-pic.imageX;
-    dy=y-pic.imageY;
-    if(dx*dx+dy*dy<=rr){ return(0); }
-    // top-right
-    dx=x-pic.imageRight;
-    dy=y-pic.imageY;
-    if(dx*dx+dy*dy<=rr){ return(1); }
-    // bottom-right
-    dx=x-pic.imageRight;
-    dy=y-pic.imageBottom;
-    if(dx*dx+dy*dy<=rr){ return(2); }
-    // bottom-left
-    dx=x-pic.imageX;
-    dy=y-pic.imageBottom;
-    if(dx*dx+dy*dy<=rr){ return(3); }
-    return(-1);
-
-}
 
 
 function hitImage(x,y,pic){
@@ -161,17 +122,16 @@ function imageMouseDown(e){
             selectedImage=i;
     }
     
-    draggingResizer=anchorHitTest(startX,startY,gallery[selectedImage]);
-    draggingImage= draggingResizer<0 && hitImage(startX,startY, gallery[selectedImage]);
+    
+    draggingImage=hitImage(startX,startY, gallery[selectedImage]);
 }
 
 function imageMouseUp(e){
-    draggingResizer=-1;
+    
     draggingImage=false;  
-    restoreSnapshot();
-    imageDrawAll();
-    // draw(false,false,gallery[selectedImage]);
-    //	selectedImage=-1;
+  //  draw(false,gallery[selectedImage]);
+//    selectedImage= -1;
+imageDrawAll();
 }
 
 function imageMouseOut(e){
@@ -180,48 +140,8 @@ function imageMouseOut(e){
 
 function imageMouseMove(e){
 
-    if(draggingResizer>-1){
-
-        mouseX=parseInt(e.clientX-offsetX);
-        mouseY=parseInt(e.clientY-offsetY);
-
-        // resize the image
-        switch(draggingResizer){
-        case 0: //top-left
-            gallery[selectedImage].imageX=mouseX;
-            gallery[selectedImage].imageWidth=gallery[selectedImage].imageRight-mouseX;
-            gallery[selectedImage].imageY=mouseY;
-            gallery[selectedImage].imageHeight=gallery[selectedImage].imageBottom-mouseY;
-            break;
-        case 1: //top-right
-            gallery[selectedImage].imageY=mouseY;
-            gallery[selectedImage].imageWidth=mouseX-gallery[selectedImage].imageX;
-            gallery[selectedImage].imageHeight=gallery[selectedImage].imageBottom-mouseY;
-            break;
-        case 2: //bottom-right
-            gallery[selectedImage].imageWidth=mouseX-gallery[selectedImage].imageX;
-            gallery[selectedImage].imageHeight=mouseY-gallery[selectedImage].imageY;
-            break;
-        case 3: //bottom-left
-            gallery[selectedImage].imageX=mouseX;
-            gallery[selectedImage].imageWidth=gallery[selectedImage].imageRight-mouseX;
-            gallery[selectedImage].imageHeight=mouseY-gallery[selectedImage].imageY;
-            break;
-        }
-
-        // enforce minimum dimensions of 25x25
-        if(gallery[selectedImage].imageWidth<25){gallery[selectedImage].imageWidth=25;}
-        if(gallery[selectedImage].imageHeight<25){gallery[selectedImage].imageHeight=25;}
-
-        // set the image right and bottom
-        gallery[selectedImage].imageRight=gallery[selectedImage].imageX+gallery[selectedImage].imageWidth;
-        gallery[selectedImage].imageBottom=gallery[selectedImage].imageY+gallery[selectedImage].imageHeight;
-
-        // redraw the image with resizing anchors
-	//  restoreSnapshot();
-	//   draw(true,true,gallery[selectedImage]);
-
-    }else if(draggingImage){
+    
+    if(draggingImage){
 
         imageClick=false;
 
@@ -241,8 +161,7 @@ function imageMouseMove(e){
 
         // redraw the image with border 
 	restoreSnapshot();
-	//   draw(false,true, gallery[selectedImage]);
-	imageDrawAllWithBorders();	
+imageDrawAll();
     }
 }
 
@@ -266,15 +185,54 @@ function deleteLastImage(){
 
 function imageDrawResize(){
 
-draw(true,true, gallery[selectedImage]);
- //   drawAnchors(gallery[selectedImage]);
+    draw(true, gallery[selectedImage]);
+    //   drawAnchors(gallery[selectedImage]);
 
 }
 
-function drawAnchors(pic){
-    drawDragAnchor(pic.imageX,pic.imageY);
-    drawDragAnchor(pic.imageRight,pic.imageY);
-    drawDragAnchor(pic.imageRight,pic.imageBottom);
-    drawDragAnchor(pic.imageX,pic.imageBottom);
 
+
+function changeImageWidth(width) {
+if(selectedImage == -1)
+selectedImage= gallery.length-1;
+  
+    gallery[selectedImage].imageWidth= width;
+gallery[selectedImage].imageRight=gallery[selectedImage].imageX+gallery[selectedImage].imageWidth;
+      	//	gallery[selectedImage].imageBottom=gallery[selectedImage].imageY+gallery[selectedImage].imageHeight;
+console.log(gallery[selectedImage].imageWidth);
+ restoreSnapshot();
+imageDrawAll();
+// draw(false, gallery[selectedImage]);
+    
+    
 }
+
+
+function changeImageHeight(height) {
+if(selectedImage == -1)
+selectedImage= gallery.length-1;
+    
+    gallery[selectedImage].imageHeight = height;
+// gallery[selectedImage].imageRight=gallery[selectedImage].imageX+gallery[selectedImage].imageWidth;
+      		gallery[selectedImage].imageBottom=gallery[selectedImage].imageY+gallery[selectedImage].imageHeight;
+ restoreSnapshot();
+imageDrawAll();
+  //  draw(false, gallery[selectedImage]);
+}   
+
+
+
+
+
+
+
+
+function changeAngle(theta) {
+
+selectedImage= gallery.length-1;
+console.log(selectedImage);
+    gallery[selectedImage].angle = theta;
+    console.log( gallery[selectedImage].angle );
+    restoreSnapshot();
+    imageDrawAll();
+}   

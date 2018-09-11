@@ -34,8 +34,7 @@
 	  </div>
         </div>
 	
-
-	<p class="choiceMode"><label> Image <input id="imageBox"   type="radio" name="mode"  ></label></p>
+<p class="choiceMode"><label> Image <input id="imageBox"   type="radio" name="mode"  ></label></p>
 	<p class="choiceMode"><label> Paint <input id="paintBox" type="radio" name="mode" checked="checked" ></label></p>
 	<p class="choiceMode"><label> Text <input id="editTextBox"  type="radio" name="mode"  ></label></p>
 
@@ -43,41 +42,53 @@
 	<div class="dropdown">
           <button onclick="myFunction(myDropdown)" class="dropbtn1">Color</button>
           <div id="myDropdown" class="dropdown-content1">
-	    <p > <label>Fill  <input class="colorOption" id="fillColor" type="color" value="#3333FF"></label></p>  
+	    <p > <label>Fill/Text  <input class="colorOption" id="fillColor" type="color" value="#3333FF"></label></p>  
 	    <p> <label>Canvas  <input class="colorOption" id="backgroundColor" type="color" value="#FFFFFF"></label></p>
 	    <p><label>Stroke  <input class="colorOption" id="strokeColor" type="color"  ></label></p>
 	  </div>
         </div>
-
 	
 	
 
+    
 
-      </div>
-      
-      
-    </div> <!-- end of topStuff -->
-
-    <div id="container"> 
-      
-<!--  <canvas id="canvas" width="250" height="400"> -->
-      <canvas id="canvas" > 
-	Sorry Cannot display Canvas. Update Browser.
-      </canvas>
-
-      <div id="controls">
-
-	
+   
+      <div class="dropdown">
+          <button onclick="myFunction(controls)"   class="dropbtn">Tools</button>
+         
+    
+  <div id="controls" class="dropdown-content1">
 
 	<div class="lightBorder" id="imageDiv">
-	  
+	  <div class="typeClass">
 	    <div class="choiceEdit"> 
 	      <p> <input type="file" id= "inputFileToLoad" > </p>
 	      <p> <input type="button" id="buttonLoadFile" value ="Load Selected File"; onclick="loadImageFileAsURL()"> </p>
 	      <input type="button"   value="Undo" id="undoImage"  onclick="deleteLastImage()">
 	    </div>
 	    
-	 
+	    <div class="choiceEdit"> 
+	      <div class="listingButton" onclick="slideOpen(rotateDiv)"> Rotate </div>
+	      Angle: <input id="rotateRange" type="range" step="1" min="0" max="360" value="0" oninput="changeAngle(this.value)"> <br>
+	      <p> Degree:  <input id="90Angle" type="button" value="90" onclick="changeAngle(90)">
+		<input  type="button" value="180" onclick="changeAngle(180)">
+		<input  type="button" value="270" onclick="changeAngle(270)">
+		<input  type="button" value="360" onclick="changeAngle(360)"> </p>
+	    </div>
+
+	    <div class="choiceEdit"> 
+	      <div   class="listingButton"  > Resize </div>  
+	      <div class="choiceEdit"> 
+		<p>	<label>Image Width: <input id="imageWidthRange"   type="range" step="20" min="50" max="1000" value="200" oninput="changeImageWidth(this.value)"  ></label></p>
+	      </div>
+	      <div class="choiceEdit"> 
+		<p>	<label>Image Height: <input id="imageHeightRange" type="range" step="20" min="50" max="1000" value="200" oninput="changeImageHeight(this.value)" ></label> </p>
+
+	      </div>	
+	    </div>
+
+	    
+	  </div>
 	</div>
 
 	
@@ -186,8 +197,19 @@
 	    </div>
 	  </div>
 	</div>
+      </div> <!-- end of controls -->
 
-      </div>	
+
+
+
+  </div> <!-- end of toolbar -->
+      
+    </div> <!-- end of topStuff -->
+ <div id="container"> 
+      <!--  <canvas id="canvas" width="250" height="400"> -->
+      <canvas id="canvas" > 
+	Sorry Cannot display Canvas. Update Browser.
+      </canvas>	
     </div>
 
 

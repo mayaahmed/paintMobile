@@ -41,26 +41,30 @@ font-size: 11px;
     font-size: 18px;
     border: none;
     cursor: pointer;
+
 }
 
 .dropbtn:hover, .dropbtn:focus {
-  
-    font-size: 19px;
+   background: tan;
+color: black;
+ 
 }
 
 
 .dropbtn1 {
-    background:#1c1c1c;
-    color: khaki;
+  background:#1c1c1c;
+  color: khaki;
     padding: 16px;
     font-size: 18px;
     border: none;
     cursor: pointer;
+// border: 1px solid beige;
 }
 
-.dropbtn1:hover, .dropbtn:focus {
-  
-    font-size: 19px;
+.dropbtn1:hover, .dropbtn1:focus {
+ background: gold;
+color: black;
+ 
 }
 
 #colorButton{

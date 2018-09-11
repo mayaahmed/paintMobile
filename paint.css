@@ -6,6 +6,19 @@ height: 100%;
 
 
 }
+
+
+#controls{
+    float: left;
+    margin-left: 10px;
+    //  border: 2px solid khaki;
+    background-color: rgba(0,0,0,0.1);
+  //  width: 50%;
+    //   box-shadow:  2px 2px 5px khaki;
+    text-align: center;
+    //  border-radius: 5px;
+}
+
 canvas{// margin-top: 20px;
      border: 1px solid gray;
      background:#FFFFE0;
@@ -14,19 +27,6 @@ margin: 10px;
 
       }
 
-
-
-
-#controls{
-    float: left;
-    margin-left: 10px;
-    //  border: 2px solid khaki;
-    background-color: rgba(0,0,0,0.1);
- //   width: 15%;
-    //   box-shadow:  2px 2px 5px khaki;
-    text-align: center;
-    //  border-radius: 5px;
-}
 
 
 
