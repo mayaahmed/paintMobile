@@ -199,7 +199,7 @@ selectedImage= gallery.length-1;
     gallery[selectedImage].imageWidth= width;
 gallery[selectedImage].imageRight=gallery[selectedImage].imageX+gallery[selectedImage].imageWidth;
       	//	gallery[selectedImage].imageBottom=gallery[selectedImage].imageY+gallery[selectedImage].imageHeight;
-console.log(gallery[selectedImage].imageWidth);
+
  restoreSnapshot();
 imageDrawAll();
 // draw(false, gallery[selectedImage]);

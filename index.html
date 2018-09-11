@@ -34,7 +34,7 @@
 	  </div>
         </div>
 	
-<p class="choiceMode"><label> Image <input id="imageBox"   type="radio" name="mode"  ></label></p>
+	<p class="choiceMode"><label> Image <input id="imageBox"   type="radio" name="mode"  ></label></p>
 	<p class="choiceMode"><label> Paint <input id="paintBox" type="radio" name="mode" checked="checked" ></label></p>
 	<p class="choiceMode"><label> Text <input id="editTextBox"  type="radio" name="mode"  ></label></p>
 
@@ -49,168 +49,169 @@
         </div>
 	
 	
+      </div> <!-- end of toolbar -->
+      
 
-    
-
-   
+      
       <div class="dropdown">
-          <button onclick="myFunction(controls)"   class="dropbtn">Tools</button>
-         
-    
-  <div id="controls" class="dropdown-content1">
+        <button onclick="toolsFunction(controls)"   id="toolsButton" class="dropbtn">Tools</button>
+        
+	
+	<div id="controls" class="dropdown-content1">
 
-	<div class="lightBorder" id="imageDiv">
-	  <div class="typeClass">
-	    <div class="choiceEdit"> 
-	      <p> <input type="file" id= "inputFileToLoad" > </p>
-	      <p> <input type="button" id="buttonLoadFile" value ="Load Selected File"; onclick="loadImageFileAsURL()"> </p>
+	  <div class="lightBorder" id="imageDiv">
+	    <div class="typeClassImage">
 	      <input type="button"   value="Undo" id="undoImage"  onclick="deleteLastImage()">
-	    </div>
-	    
-	    <div class="choiceEdit"> 
-	      <div class="listingButton" onclick="slideOpen(rotateDiv)"> Rotate </div>
-	      Angle: <input id="rotateRange" type="range" step="1" min="0" max="360" value="0" oninput="changeAngle(this.value)"> <br>
-	      <p> Degree:  <input id="90Angle" type="button" value="90" onclick="changeAngle(90)">
+	      <div class="choiceEdit"> 
+		<p> <input type="file" id= "inputFileToLoad" > </p>
+		<p> <input type="button" id="buttonLoadFile" value ="Load Selected File"; onclick="loadImageFileAsURL()"> </p>
+		
+	      </div>
+	      
+	      <div class="choiceEdit"> 
+		
+		Angle: <input id="rotateRange" type="range" step="1" min="0" max="360" value="0" oninput="changeAngle(this.value)"> <br>
+		<input id="90Angle" type="button" value="90" onclick="changeAngle(90)">
 		<input  type="button" value="180" onclick="changeAngle(180)">
 		<input  type="button" value="270" onclick="changeAngle(270)">
-		<input  type="button" value="360" onclick="changeAngle(360)"> </p>
-	    </div>
-
-	    <div class="choiceEdit"> 
-	      <div   class="listingButton"  > Resize </div>  
-	      <div class="choiceEdit"> 
-		<p>	<label>Image Width: <input id="imageWidthRange"   type="range" step="20" min="50" max="1000" value="200" oninput="changeImageWidth(this.value)"  ></label></p>
+		<input  type="button" value="360" onclick="changeAngle(360)"> 
 	      </div>
+
+	      
+		<div class="choiceEdit"> 
+		 	<label>Image Width: <input id="imageWidthRange"   type="range" step="20" min="50" max="1000" value="200" oninput="changeImageWidth(this.value)"  ></label>
+		</div>
+		<div class="choiceEdit"> 
+			<label>Image Height: <input id="imageHeightRange" type="range" step="20" min="50" max="1000" value="200" oninput="changeImageHeight(this.value)" ></label> 
+
+		</div>	
+	    
+
+	      
+	    </div>
+	  </div>
+
+	  
+	  <div class="lightBorder" id="paintDiv"> 
+	    <p><input id="deleteLastStep"  type="button" value="Undo" class="undoButton"></p>
+	    
+	    
+	    <div class="typeClass">
+	      
+	      <div class="choiceTitle"> Brush </div>
+	      <div class="choiceEdit"> <label>Fill: <input id="fillBox" type="checkbox" checked="checked"></label></div> 
+	      <div class="choiceEdit">
+		<label>  Width: </label> <input id="lineWidth" type="range" step="1" min="1" max="200" value="4">
+	      </div>
+
+	      <div class="choiceEdit">
+		<input class="choiceEdit" type="radio" name="lineCap" value="round"  checked="checked">round
+		<input class="choiceEdit" type="radio" name="lineCap" value="butt">Butt
+		<input class="choiceEdit" type="radio" name="lineCap" value="square">square
+	      </div>
+	      
+	    </div>
+	    <div class="typeClass">
+	      <div class="choiceEdit">
+		<p> <input type="radio" name="shape"  id="freeDrawRadio" value="free" checked="checked" >Free Drawing</p>
+	      </div>
+
 	      <div class="choiceEdit"> 
-		<p>	<label>Image Height: <input id="imageHeightRange" type="range" step="20" min="50" max="1000" value="200" oninput="changeImageHeight(this.value)" ></label> </p>
+		<p><input type="radio" name="shape" value="line" >Line</p>
+	      </div>
+	      
+	      <div class="choiceEdit">
+		<p><input type="radio" name="shape" value="circle">Circle</p>
+	      </div>
+	      
+	      <div class="choiceEdit">
+		<p><input type="radio" name="shape" value="qcurve" >Quadratic Curve</p>
+	      </div>
 
-	      </div>	
+	      <div class="choiceEdit">
+		<p><input type="radio" name="shape" value="polygon">Polygon</p>
+		<p><label>Polygon Sides: <input id="polygonSides" type="range" step="1" min="3" max="10"></label>
+		<label>Polygon Angle: <input id="polygonAngle" type="range" step="22.5" min="0" max="90"></label></p>
+	      </div>
+	      
+	      <div class="choiceEdit">
+		<p> <input type="radio" name="shape"  id="eraseRadio" value="eraser" >Erase</p>
+		<p>  <label>Area: <input id="eraseArea" type="range" step="5" min="5" max="100"></label></p>
+
+	      </div> 
 	    </div>
-
-	    
 	  </div>
-	</div>
 
-	
-	<div class="lightBorder" id="paintDiv"> 
-	  <p><input id="deleteLastStep"  type="button" value="Undo" class="undoButton"></p>
+	  <div class="lightBorder" id="textDiv">
+	     
+	    <div class="typeClass" >
+	      <input type="button"  class="undoButton" value="Undo" id="undoText">
+	      <div class="choiceEdit"> 
+		<p> <textarea id= "theText" rows="2" cols="10" > Hello  </textarea> </p>
+		<p> <input type="button"  class="undoButton" value="submit" id="textSubmit"> </p>
+		 
+	      </div>
+	      
+	      
+	      <div class="choiceEdit"> 
+		<label>Font Size: <input id="fontSize" type="range" step="1" min="10" max="70" value="22"></label>
+	      </div>
+	   
+
 	  
-	  
-	  <div class="typeClass">
-	    
-	    <div class="choiceTitle"> Brush </div>
-	    <div class="choiceEdit"> <label>Fill: <input id="fillBox" type="checkbox" checked="checked"></label></div> 
-	    <div class="choiceEdit">
-	      <label>  Width: </label> <input id="lineWidth" type="range" step="1" min="1" max="200" value="4">
-	    </div>
-
-	    <div class="choiceEdit">
-	      <input class="choiceEdit" type="radio" name="lineCap" value="round"  checked="checked">round
-	      <input class="choiceEdit" type="radio" name="lineCap" value="butt">Butt
-	      <input class="choiceEdit" type="radio" name="lineCap" value="square">square
-	    </div>
-	    
-	  </div>
-	  <div class="typeClass">
-	    <div class="choiceEdit">
-	      <p> <input type="radio" name="shape"  id="freeDrawRadio" value="free" checked="checked" >Free Drawing</p>
-	    </div>
-
-	    <div class="choiceEdit"> 
-	      <p><input type="radio" name="shape" value="line" >Line</p>
-	    </div>
-	    
-	    <div class="choiceEdit">
-	      <p><input type="radio" name="shape" value="circle">Circle</p>
-	    </div>
-	    
-	    <div class="choiceEdit">
-	      <p><input type="radio" name="shape" value="qcurve" >Quadratic Curve</p>
-	    </div>
-
-	    <div class="choiceEdit">
-	      <p><input type="radio" name="shape" value="polygon">Polygon</p>
-	      <p><label>Polygon Sides: <input id="polygonSides" type="range" step="1" min="3" max="10"></label></p>
-	      <p><label>Polygon Angle: <input id="polygonAngle" type="range" step="22.5" min="0" max="90"></label></p>
-	    </div>
-	    
-	    <div class="choiceEdit">
-	      <p> <input type="radio" name="shape"  id="eraseRadio" value="eraser" >Erase</p>
-	      <p>  <label>Area: <input id="eraseArea" type="range" step="5" min="5" max="100"></label></p>
-
-	    </div> 
-	  </div>
-	</div>
-
-	<div class="lightBorder" id="textDiv">
-	  
-	  <div class="typeClass" >
-	    <div class="choiceEdit"> 
-	      <p> <textarea id= "theText" rows="2" cols="10" > Hello  </textarea> </p>
-	      <p> <input type="button"  class="undoButton" value="submit" id="textSubmit"> 
-		<input type="button"  class="undoButton" value="Delete" id="undoText"></p>
-	    </div>
-	    
-	    
-	    <div class="choiceEdit"> 
-	      <label>Font Size: <input id="fontSize" type="range" step="1" min="10" max="70" value="22"></label>
+	      <div class="choiceEdit" id="fontDiv"> 
+		<form name="formA">
+		  <p> <input type="radio" name="font"  value="Andale Mono"  >Andale Mono</p>
+		  <p> <input type="radio" name="font"  value="Arial" checked="checked" >Arial</p>
+		  <p> <input type="radio" name="font"  value="Arial Bold"  >Arial Bold</p>
+		  <p> <input type="radio" name="font"  value="Arial Italic"  >Arial Italic</p>
+		  <p> <input type="radio" name="font"  value="Arial Black"  >Arial Black</p>
+		  <p> <input type="radio" name="font"  value="Comic Sans MS"  >Comic Sans MS</p>
+		  <p> <input type="radio" name="font"  value=">Courier New"  >Courier New</p>
+		  <p> <input type="radio" name="font"  value="Courier New Bold"  >Courier New Bold</p>
+		  <p> <input type="radio" name="font"  value="Courier New Italic"  >Courier New Italic</p>
+		  <p> <input type="radio" name="font"  value="Courier New Bold Italic"  >Courier New Bold Italic</p>
+		  <p> <input type="radio" name="font"  value="Georgia"  >Georgia</p>
+		  <p> <input type="radio" name="font"  value="Georgia Bold"  >Georgia Bold</p>
+		  <p> <input type="radio" name="font"  value="Georgia Italic"  >Georgia Italic</p>
+		  <p> <input type="radio" name="font"  value="Georgia Bold Italic"  >Georgia Bold Italic</p>
+		  <p> <input type="radio" name="font"  value="Impact"  >Impact</p>
+		  <p> <input type="radio" name="font"  value="Lucida Console"  >Lucida Console</p>
+		  <p> <input type="radio" name="font"  value="Lucida Sans Unicode"  >Lucida Sans Unicode</p>
+		  <p> <input type="radio" name="font"  value="Marlett	Minion Web"  >Marlett	Minion Web</p>
+		  <p> <input type="radio" name="font"  value="Symbol"  >Symbol</p>
+		  <p> <input type="radio" name="font"  value="Times New Roman"  >	Times New Roman</p>
+		  <p> <input type="radio" name="font"  value="Times New Roman Bold"  >Times New Roman Bold</p>
+		  <p> <input type="radio" name="font"  value="Times New Roman Italic"  >Times New Roman Italic</p>
+		  <p> <input type="radio" name="font"  value="Times New Roman Bold Italic"  >Times New Roman Bold Italic</p>
+		  <p> <input type="radio" name="font"  value="Tahoma"  >Tahoma</p>
+		  <p> <input type="radio" name="font"  value="Trebuchet MS"  >Trebuchet MS</p>
+		  <p> <input type="radio" name="font"  value="Trebuchet MS Bold"  >Trebuchet MS Bold</p>
+		  <p> <input type="radio" name="font"  value="Trebuchet MS Italic"  >Trebuchet MS Italic</p>
+		  <p> <input type="radio" name="font"  value="Trebuchet MS Bold Italic"  >Trebuchet MS Bold Italic</p>
+		  <p> <input type="radio" name="font"  value="Verdana"  >Verdana</p>
+		  <p> <input type="radio" name="font"  value="Verdana Bold"  >Verdana Bold</p>
+		  <p> <input type="radio" name="font"  value="Verdana Italic"  >Verdana Italic</p>
+		  <p> <input type="radio" name="font"  value="Verdana Bold Italic"  >Verdana Bold Italic</p>
+		  <p> <input type="radio" name="font"  value="Webdings" > Webdings</p>
+		</form>
+	      </div>
 	    </div>
 	  </div>
+	</div> <!-- end of controls -->
 
-	  <div class="typeClass" >
-	    <div class="choiceEdit" id="fontDiv"> 
-	      <form name="formA">
-		<p> <input type="radio" name="font"  value="Andale Mono"  >Andale Mono</p>
-		<p> <input type="radio" name="font"  value="Arial" checked="checked" >Arial</p>
-		<p> <input type="radio" name="font"  value="Arial Bold"  >Arial Bold</p>
-		<p> <input type="radio" name="font"  value="Arial Italic"  >Arial Italic</p>
-		<p> <input type="radio" name="font"  value="Arial Black"  >Arial Black</p>
-		<p> <input type="radio" name="font"  value="Comic Sans MS"  >Comic Sans MS</p>
-		<p> <input type="radio" name="font"  value=">Courier New"  >Courier New</p>
-		<p> <input type="radio" name="font"  value="Courier New Bold"  >Courier New Bold</p>
-		<p> <input type="radio" name="font"  value="Courier New Italic"  >Courier New Italic</p>
-		<p> <input type="radio" name="font"  value="Courier New Bold Italic"  >Courier New Bold Italic</p>
-		<p> <input type="radio" name="font"  value="Georgia"  >Georgia</p>
-		<p> <input type="radio" name="font"  value="Georgia Bold"  >Georgia Bold</p>
-		<p> <input type="radio" name="font"  value="Georgia Italic"  >Georgia Italic</p>
-		<p> <input type="radio" name="font"  value="Georgia Bold Italic"  >Georgia Bold Italic</p>
-		<p> <input type="radio" name="font"  value="Impact"  >Impact</p>
-		<p> <input type="radio" name="font"  value="Lucida Console"  >Lucida Console</p>
-		<p> <input type="radio" name="font"  value="Lucida Sans Unicode"  >Lucida Sans Unicode</p>
-		<p> <input type="radio" name="font"  value="Marlett	Minion Web"  >Marlett	Minion Web</p>
-		<p> <input type="radio" name="font"  value="Symbol"  >Symbol</p>
-		<p> <input type="radio" name="font"  value="Times New Roman"  >	Times New Roman</p>
-		<p> <input type="radio" name="font"  value="Times New Roman Bold"  >Times New Roman Bold</p>
-		<p> <input type="radio" name="font"  value="Times New Roman Italic"  >Times New Roman Italic</p>
-		<p> <input type="radio" name="font"  value="Times New Roman Bold Italic"  >Times New Roman Bold Italic</p>
-		<p> <input type="radio" name="font"  value="Tahoma"  >Tahoma</p>
-		<p> <input type="radio" name="font"  value="Trebuchet MS"  >Trebuchet MS</p>
-		<p> <input type="radio" name="font"  value="Trebuchet MS Bold"  >Trebuchet MS Bold</p>
-		<p> <input type="radio" name="font"  value="Trebuchet MS Italic"  >Trebuchet MS Italic</p>
-		<p> <input type="radio" name="font"  value="Trebuchet MS Bold Italic"  >Trebuchet MS Bold Italic</p>
-		<p> <input type="radio" name="font"  value="Verdana"  >Verdana</p>
-		<p> <input type="radio" name="font"  value="Verdana Bold"  >Verdana Bold</p>
-		<p> <input type="radio" name="font"  value="Verdana Italic"  >Verdana Italic</p>
-		<p> <input type="radio" name="font"  value="Verdana Bold Italic"  >Verdana Bold Italic</p>
-		<p> <input type="radio" name="font"  value="Webdings" > Webdings</p>
-	      </form>
-	    </div>
-	  </div>
-	</div>
-      </div> <!-- end of controls -->
+      </div> <!-- end of topStuff -->
 
 
-
-
-  </div> <!-- end of toolbar -->
       
-    </div> <!-- end of topStuff -->
- <div id="container"> 
-      <!--  <canvas id="canvas" width="250" height="400"> -->
-      <canvas id="canvas" > 
-	Sorry Cannot display Canvas. Update Browser.
-      </canvas>	
-    </div>
+      
+      
+      <div id="container"> 
+	<!--  <canvas id="canvas" width="250" height="400"> -->
+	<canvas id="canvas" > 
+	  Sorry Cannot display Canvas. Update Browser.
+	</canvas>	
+      </div>
 
 
 
@@ -218,13 +219,13 @@
 
 
 
-    <script src="init.js"></script>
-    <script src="moush.js"></script>
-    <script src="paint.js"></script>
+      <script src="init.js"></script>
+      <script src="moush.js"></script>
+      <script src="paint.js"></script>
 
-    <script src="text.js"></script>
-    <script src="editImage.js"></script>
-    <script src="general.js"></script> 
+      <script src="text.js"></script>
+      <script src="editImage.js"></script>
+      <script src="general.js"></script> 
 
   </body>
 </html>

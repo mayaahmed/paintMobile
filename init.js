@@ -80,5 +80,11 @@ window.onclick = function(event) {
 }
 
 
-
+function toolsFunction(e){
+    myFunction(e);
+    if(document.getElementById("toolsButton").innerHTML == "Hide Tool Options")
+	document.getElementById("toolsButton").innerHTML = "Show Tool Options";
+    else
+	document.getElementById("toolsButton").innerHTML = "Hide Tool Options";
+}
 
