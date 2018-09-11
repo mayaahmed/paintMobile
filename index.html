@@ -39,19 +39,21 @@
 	<p class="choiceMode"><label> Text <input id="editTextBox"  type="radio" name="mode"  ></label></p>
 
 	
-	<div class="dropdown">
-          <button onclick="myFunction(myDropdown)" class="dropbtn1">Color</button>
-          <div id="myDropdown" class="dropdown-content1">
-	    <p > <label>Fill/Text  <input class="colorOption" id="fillColor" type="color" value="#3333FF"></label></p>  
-	    <p> <label>Canvas  <input class="colorOption" id="backgroundColor" type="color" value="#FFFFFF"></label></p>
-	    <p><label>Stroke  <input class="colorOption" id="strokeColor" type="color"  ></label></p>
-	  </div>
-        </div>
-	
 	
       </div> <!-- end of toolbar -->
-      
+    
+<div id="colorNtoolDiv">  
 
+      <div class="dropdown">
+        <button onclick="myFunction(colorControl)" class="dropbtn" id="colorButton">Color</button>
+        <div id="colorControl" class="dropdown-content1" >
+	  <p > <label>Fill/Text  <input class="colorOption" id="fillColor" type="color" value="#3333FF"></label></p>  
+	  <p> <label>Canvas  <input class="colorOption" id="backgroundColor" type="color" value="#FFFFFF"></label></p>
+	  <p><label>Stroke  <input class="colorOption" id="strokeColor" type="color"  ></label></p>
+	</div>
+      </div>
+   
+      
       
       <div class="dropdown">
         <button onclick="toolsFunction(controls)"   id="toolsButton" class="dropbtn">Tools</button>
@@ -199,6 +201,8 @@
 	    </div>
 	  </div>
 	</div> <!-- end of controls -->
+
+</div>
 
       </div> <!-- end of topStuff -->
 

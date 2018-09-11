@@ -31,27 +31,6 @@ canvas{
 
 
 
-.closeButtonOptions{
-    float: right;
-    // margin-left:50px;
-    height: 20px;
-    width: 20px;
-    font-size: 18px;
-    border: 1px solid black;
-    background: wheat;
-    // border-radius: 2px;
-    // box-shadow: 2px 2px 12px rgba(0,0,0,0.2);
-    // color: white;
-    opacity: 0.5;
-    line-height: 20px;
-}
-
-.closeButtonOptions:hover{
-    opacity: 0.9;
-    height: 22px;
-    width: 22px;
-}
-
 
 
 
@@ -164,12 +143,7 @@ color: black;
     // font-size: 22px;
 }
 
-#colorDiv{
-    
-    height: 0px;
-    visibility: hidden;
-    transition: height 2s;
-}
+
 
 #fileDiv{
     
@@ -195,9 +169,6 @@ color: black;
 }
 
 
-.colorOption{
-    margin-left:3px;
-}
 
 .typeClassImage{
     border: 1px solid blue;
@@ -207,3 +178,22 @@ color: black;
     max-width: 400px;
     overflow: scroll;
 }
+
+
+.colorOption{
+    margin-left:3px;
+}
+
+/*
+#colorControl{
+    float: left;
+margin-top: 100px;
+    margin-left: 50px;
+    //  border: 2px solid khaki;
+    background-color: rgba(0,0,0,0.1);
+    //  width: 50%;
+    //   box-shadow:  2px 2px 5px khaki;
+    text-align: left;
+    //  border-radius: 5px;
+}
+*/
