@@ -26,7 +26,7 @@
       <div id="toolbar">
 	<div class="dropdown">
           <button onclick="myFunction(myDropdown1)"   class="dropbtn">File</button>
-          <div id="myDropdown1" class="dropdown-content1">
+          <div id="myDropdown1" class="dropdown-content1  colorWhite">
 
 	    <p>	<input id="clearCanvas" class="fileOption" onclick="eraseCanvas()" type="button" value="New"> </p>
 	    <p ><input type="button" class="fileOption"  value="Save" id="saveOption"  onclick="saveCanvas()"> </p>
@@ -38,21 +38,21 @@
 	<p class="choiceMode"><label> Paint <input id="paintBox" type="radio" name="mode" checked="checked" ></label></p>
 	<p class="choiceMode"><label> Text <input id="editTextBox"  type="radio" name="mode"  ></label></p>
 
-	
-	
-      </div> <!-- end of toolbar -->
-    
-<div id="colorNtoolDiv">  
-
-      <div class="dropdown">
+	<div class="dropdown">
         <button onclick="myFunction(colorControl)" class="dropbtn" id="colorButton">Color</button>
-        <div id="colorControl" class="dropdown-content1" >
+        <div id="colorControl" class="dropdown-content1  colorWhite" >
 	  <p > <label>Fill/Text  <input class="colorOption" id="fillColor" type="color" value="#3333FF"></label></p>  
 	  <p> <label>Canvas  <input class="colorOption" id="backgroundColor" type="color" value="#FFFFFF"></label></p>
 	  <p><label>Stroke  <input class="colorOption" id="strokeColor" type="color"  ></label></p>
 	</div>
       </div>
    
+	
+      </div> <!-- end of toolbar -->
+    
+<div id="colorNtoolDiv">  
+
+      
       
       
       <div class="dropdown">
@@ -62,7 +62,7 @@
 	<div id="controls" class="dropdown-content1">
 
 	  <div class="lightBorder" id="imageDiv">
-	    <div class="typeClassImage">
+	    <div class="typeClass">
 	      <input type="button"   value="Undo" id="undoImage"  onclick="deleteLastImage()">
 	      <div class="choiceEdit"> 
 		<p> <input type="file" id= "inputFileToLoad" > </p>
@@ -72,19 +72,19 @@
 	      
 	      <div class="choiceEdit"> 
 		
-		Angle: <input id="rotateRange" type="range" step="1" min="0" max="360" value="0" oninput="changeAngle(this.value)"> <br>
+	<p>	Rotate Angle: <input id="rotateRange" type="range" step="1" min="0" max="360" value="0" oninput="changeAngle(this.value)"> <br>
 		<input id="90Angle" type="button" value="90" onclick="changeAngle(90)">
 		<input  type="button" value="180" onclick="changeAngle(180)">
 		<input  type="button" value="270" onclick="changeAngle(270)">
-		<input  type="button" value="360" onclick="changeAngle(360)"> 
+		<input  type="button" value="360" onclick="changeAngle(360)"> </p>
 	      </div>
 
 	      
 		<div class="choiceEdit"> 
-		 	<label>Image Width: <input id="imageWidthRange"   type="range" step="20" min="50" max="1000" value="200" oninput="changeImageWidth(this.value)"  ></label>
+		 <p>	<label>Image Width: <input id="imageWidthRange"   type="range" step="20" min="50" max="1000" value="200" oninput="changeImageWidth(this.value)"  ></label> </p>
 		</div>
 		<div class="choiceEdit"> 
-			<label>Image Height: <input id="imageHeightRange" type="range" step="20" min="50" max="1000" value="200" oninput="changeImageHeight(this.value)" ></label> 
+		<p>	<label>Image Height: <input id="imageHeightRange" type="range" step="20" min="50" max="1000" value="200" oninput="changeImageHeight(this.value)" ></label> </p>
 
 		</div>	
 	    
@@ -103,13 +103,13 @@
 	      <div class="choiceTitle"> Brush </div>
 	      <div class="choiceEdit"> <label>Fill: <input id="fillBox" type="checkbox" checked="checked"></label></div> 
 	      <div class="choiceEdit">
-		<label>  Width: </label> <input id="lineWidth" type="range" step="1" min="1" max="200" value="4">
+	<p>	<label>  Width: </label> <input id="lineWidth" type="range" step="1" min="1" max="200" value="4"> </p>
 	      </div>
 
 	      <div class="choiceEdit">
-		<input class="choiceEdit" type="radio" name="lineCap" value="round"  checked="checked">round
+	<p>	<input class="choiceEdit" type="radio" name="lineCap" value="round"  checked="checked">round
 		<input class="choiceEdit" type="radio" name="lineCap" value="butt">Butt
-		<input class="choiceEdit" type="radio" name="lineCap" value="square">square
+		<input class="choiceEdit" type="radio" name="lineCap" value="square">square </p>
 	      </div>
 	      
 	    </div>
@@ -156,7 +156,7 @@
 	      
 	      
 	      <div class="choiceEdit"> 
-		<label>Font Size: <input id="fontSize" type="range" step="1" min="10" max="70" value="22"></label>
+	<p>	<label>Font Size: <input id="fontSize" type="range" step="1" min="10" max="70" value="22"></label> </p>
 	      </div>
 	   
 
