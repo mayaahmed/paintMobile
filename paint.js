@@ -110,7 +110,8 @@ function drawPolygon(position, sides, angle) {
 function drawP(position) {
     var fillBox = document.getElementById("fillBox"),
     shape = document.querySelector('input[type="radio"][name="shape"]:checked').value,
-   
+    polygonSides = document.getElementById("polygonSides").value,
+    polygonAngle = document.getElementById("polygonAngle").value,
     lineCap = document.querySelector('input[type="radio"][name="lineCap"]:checked').value,
     eraseDim = document.getElementById("eraseArea").value;
     
@@ -126,7 +127,31 @@ function drawP(position) {
         drawFree(position);
     }
 
-    
+    if (shape === "circle") {
+        drawCircle(position);
+    }
+    if (shape === "line") {
+        drawLine(position);
+    }
+
+    if (shape === "qcurve") {
+        drawQCurve(position);
+    }
+
+    if (shape === "polygon") {
+        drawPolygon(position, polygonSides, polygonAngle * (Math.PI / 180));
+    }
+
+    if (shape !== "line" && shape !== "free" && shape!=="bcurve") {
+        if (fillBox.checked) {
+            context.fill();
+            
+        } else {
+            context.stroke();
+            
+
+        }
+    }
     
 }
 
