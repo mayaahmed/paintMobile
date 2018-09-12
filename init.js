@@ -88,3 +88,4 @@ function toolsFunction(e){
 	document.getElementById("toolsButton").innerHTML = "Hide Tool Options";
 }
 
+	 toolsFunction(document.getElementById("controls"));

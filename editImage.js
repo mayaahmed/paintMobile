@@ -35,8 +35,7 @@ function loadImageFileAsURL()
 		gallery[len].imageRight=gallery[len].imageX+gallery[len].imageWidth;
       		gallery[len].imageBottom=gallery[len].imageY+gallery[len].imageHeight;
 		draw(false,gallery[len] );
-		
-		
+			
             };
 
             fileReader.readAsDataURL(fileToLoad);
@@ -66,21 +65,21 @@ function imageDrawAllWithBorders(){
 }
 
 function draw(withBorders,pic ){
-console.log(pic.img.width);
+    console.log(pic.img.width);
 
 
-     // draw the image
+    // draw the image
     
     if(pic.angle>0){
 	console.log(pic.angle);
 	context.save();
-context.translate(pic.imageX,pic.imageY);
-context.translate(pic.imageWidth/2,pic.imageHeight/2);
+	context.translate(pic.imageX,pic.imageY);
+	context.translate(pic.imageWidth/2,pic.imageHeight/2);
 
 	context.rotate(pic.angle*Math.PI/180.0);
-context.drawImage(pic.img,-pic.imageWidth/2,-pic.imageHeight/2,pic.imageWidth,pic.imageHeight);
+	context.drawImage(pic.img,-pic.imageWidth/2,-pic.imageHeight/2,pic.imageWidth,pic.imageHeight);
 
-		context.restore(); 
+	context.restore(); 
 	
 
     }
@@ -129,9 +128,7 @@ function imageMouseDown(e){
 function imageMouseUp(e){
     
     draggingImage=false;  
-  //  draw(false,gallery[selectedImage]);
-//    selectedImage= -1;
-imageDrawAll();
+    imageDrawAll();
 }
 
 function imageMouseOut(e){
@@ -161,7 +158,7 @@ function imageMouseMove(e){
 
         // redraw the image with border 
 	restoreSnapshot();
-imageDrawAll();
+	imageDrawAll();
     }
 }
 
@@ -193,31 +190,25 @@ function imageDrawResize(){
 
 
 function changeImageWidth(width) {
-if(selectedImage == -1)
-selectedImage= gallery.length-1;
-  
+    if(selectedImage == -1)
+	selectedImage= gallery.length-1;
     gallery[selectedImage].imageWidth= width;
-gallery[selectedImage].imageRight=gallery[selectedImage].imageX+gallery[selectedImage].imageWidth;
-      	//	gallery[selectedImage].imageBottom=gallery[selectedImage].imageY+gallery[selectedImage].imageHeight;
-
- restoreSnapshot();
-imageDrawAll();
-// draw(false, gallery[selectedImage]);
+    gallery[selectedImage].imageRight=gallery[selectedImage].imageX+gallery[selectedImage].imageWidth;
+    restoreSnapshot();
+    imageDrawAll();
     
     
 }
 
 
 function changeImageHeight(height) {
-if(selectedImage == -1)
-selectedImage= gallery.length-1;
-    
+    if(selectedImage == -1)
+	selectedImage= gallery.length-1;
     gallery[selectedImage].imageHeight = height;
-// gallery[selectedImage].imageRight=gallery[selectedImage].imageX+gallery[selectedImage].imageWidth;
-      		gallery[selectedImage].imageBottom=gallery[selectedImage].imageY+gallery[selectedImage].imageHeight;
- restoreSnapshot();
-imageDrawAll();
-  //  draw(false, gallery[selectedImage]);
+    gallery[selectedImage].imageBottom=gallery[selectedImage].imageY+gallery[selectedImage].imageHeight;
+    restoreSnapshot();
+    imageDrawAll();
+    
 }   
 
 
@@ -229,8 +220,8 @@ imageDrawAll();
 
 function changeAngle(theta) {
 
-selectedImage= gallery.length-1;
-console.log(selectedImage);
+    selectedImage= gallery.length-1;
+    console.log(selectedImage);
     gallery[selectedImage].angle = theta;
     console.log( gallery[selectedImage].angle );
     restoreSnapshot();
