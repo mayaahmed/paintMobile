@@ -14,7 +14,9 @@ body{
 background: black;
 }
 
-
+html, body {
+  overflow: hidden;
+}
 
 
 #topStuff{
@@ -41,7 +43,7 @@ font-size: 11px;
     font-size: 14px;
     border: none;
     cursor: pointer;
-
+margin-top: 1px;
 }
 
 .dropbtn:hover, .dropbtn:focus {
