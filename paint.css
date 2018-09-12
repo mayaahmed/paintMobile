@@ -17,15 +17,15 @@
     //   box-shadow:  2px 2px 5px khaki;
     text-align: left;
     //  border-radius: 5px;
+z-index: 2;
 }
 
 canvas{
+// position: relative;
     border: 1px solid gray;
     background:#FFFFE0;
     box-shadow: inset 2px 2px 1px rgba(0,0,0,0.2);
-    margin: 10px;
-    margin-top: 5px;
-
+ 
 }
 
 
@@ -42,18 +42,14 @@ canvas{
 #toolbar{
     width: 100%;
     min-height:30px;
-    // padding:5px;
     position:fixed;
     top:0;
     background: khaki;
-    //color: white; 
     font-size: 16px;
     display: flex;
     flex-wrap: wrap;
-    //   justify-content: center; 
     text-shadow: 0px 1px 0px rgba(0,0,0,0.4);
     line-height: 30px;
-
 }
 
 .choiceMode{

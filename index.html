@@ -24,15 +24,7 @@
       </header>
       
       <div id="toolbar">
-	<div class="dropdown">
-          <button onclick="myFunction(myDropdown1)"   class="dropbtn">File</button>
-          <div id="myDropdown1" class="dropdown-content1  colorWhite">
-
-	    <p>	<input id="clearCanvas" class="fileOption" onclick="eraseCanvas()" type="button" value="New"> </p>
-	    <p ><input type="button" class="fileOption"  value="Save" id="saveOption"  onclick="saveCanvas()"> </p>
-
-	  </div>
-        </div>
+	
 	
 	<p class="choiceMode"><label> Image <input id="imageBox"   type="radio" name="mode"  ></label></p>
 	<p class="choiceMode"><label> Paint <input id="paintBox" type="radio" name="mode" checked="checked" ></label></p>
@@ -46,7 +38,15 @@
 	  <p><label>Stroke  <input class="colorOption" id="strokeColor" type="color"  ></label></p>
 	</div>
       </div>
-   
+   <div class="dropdown">
+          <button onclick="myFunction(myDropdown1)"   class="dropbtn">File</button>
+          <div id="myDropdown1" class="dropdown-content1  colorWhite">
+
+	    <p>	<input id="clearCanvas" class="fileOption" onclick="eraseCanvas()" type="button" value="New"> </p>
+	    <p ><input type="button" class="fileOption"  value="Save" id="saveOption"  onclick="saveCanvas()"> </p>
+
+	  </div>
+        </div>
 	
       </div> <!-- end of toolbar -->
     
